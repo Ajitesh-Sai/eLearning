@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{% load static %}
+{% static "images" as baseUrl %}
+  
+  {% block content %}    
+
+    <div  class="jumbotron jumbotron-fluid ">
+      <div class="container jumbo">
+        <h1 class="display-4">Welcome to eLearning!</h1>
+        <p class="lead">The best place to learn online. For classes 6 and 7</p>
+      </div>
+    </div>
+
+    {% for course in courses %}
+      <div class="card d-flex flex-row">
+          <img class= "pic col-6" src="{{baseUrl}}/{{course.image}}">
+          <span>
+              <h1 class="d-flex display-5 title my-3 mx-2">{{course.name}}</h1>
+              <hr>
+              <h5 class="lead desc">{{course.description}}</h5>
+              <a type="button" class="btn btn-outline-dark load"  href="course/{{course.code}}/0" role="button">Start learning now!</a>
+          </span>    
+      </div>
+    {% endfor %}
+
+  {% endblock %}

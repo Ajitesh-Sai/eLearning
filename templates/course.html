@@ -1,0 +1,51 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load embed_video_tags %}
+
+{% block content %}
+
+<div  class="jumbotron jumbotron-fluid jumbo">
+    <div class="container">
+      <h1 class="display-4">{{obj.1.name}}</h1>
+      <p class="lead">{{obj.1.description}}</p>
+    </div>
+</div>
+
+
+
+<div class="d-flex flex-row">
+    <div class="vid_list text-center">
+        <h2 class="display-5">Course Contents</h2>
+        {% for vid in obj.0 %}
+            <div class="vid_list_item">
+                <a style="color: black;"  href="/course/{{obj.1.code}}/{{vid.position}}" >{{ vid.name }}</a>
+            </div>            
+        {% endfor %}    
+    </div>
+
+    {% if pos == 0 %}
+        <div class="container d-flex flex-row flex-wrap" >    
+            <div class=" align-items-center vidholder">
+                <h4 class="display-5 lead vidname">{{obj.0.0.name}}</h4>
+                {% video obj.0.0.video 'tiny' %}
+            </div>
+        </div>
+    {% else %}
+    <div class="container d-flex flex-row flex-wrap">
+
+        {% for vid in obj.0 %}
+        {% if vid.position == pos %}    
+        <div class=" align-items-center vidholder">
+            <h4 class="display-5 lead vidname">{{vid.name}}</h4>
+            {% video vid.video 'tiny' %}
+        </div>
+        {% endif %} 
+        {% endfor %}
+
+    </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}
+    

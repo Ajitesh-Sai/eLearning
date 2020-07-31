@@ -1,0 +1,47 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning!</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/coursepage.css' %}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"> -->
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/">eLearning!</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact us</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <div class="footer">
+        This application was built by Sathyasai Ajitesh Tamirisa and is for demo purposes only. The videos in this demo website belong to <a href='https://www.youtube.com/user/ExamFearVideos/videos'>LearnoHub - Class 11, 12</a> from YouTube. All the images displayed in this application are taken from Google and the creator of this application has no right over them. None of the videos or images are being used for any kind of commercial purposes.
+    </div>
+
+</body>
+</html>
